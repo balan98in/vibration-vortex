@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Vortex induced vibrations (Fluid Dynamics)</title>
+    <base href="/vibration-vortex/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        #step1 {
+            border-color: #000;
+            border: solid;
+            border-width: thick;
+            padding: 10px
+        }
+        
+        #step2 {
+            border-color: #000;
+            background-color: #4fb9af;
+            border: solid;
+            border-width: thick;
+            padding: 10px
+        }
+        
+        #demo {
+            border-color: #000;
+            border: solid;
+            border-width: thick;
+            padding: 10px
+        }
+        
+        #myProgress {
+            width: 100%;
+            background-color: #ddd
+        }
+        
+        #myBar {
+            width: 0%;
+            height: 15px;
+            background-color: #2ea3f2;
+            text-align: center;
+            line-height: 15px;
+            color: #fff
+        }
+        
+        img {
+            width: 33%
+        }
+    </style>
+    <link rel="stylesheet" href="styles.3c348ce8c368c4ee.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.3c348ce8c368c4ee.css"></noscript></head>
+
+<body>
+    <div class="container">
+
+
+        <div class="row" id="step1">
+            <div class="col-sm-12">
+                <div style="padding:20%">
+                    <center>
+                        <div>
+                            <img src="assets/1.png"><img src="assets/2.png"><img src="assets/3.png">
+                        </div>
+                    </center>
+
+                    <div style="padding: 10px">
+                        <div id="myProgress" style="border-radius: 20px;">
+                            <div id="myBar" style="border-radius: 20px;">0%</div>
+                        </div>
+                        <center>
+                            <label>Loading...</label>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" id="step2">
+            <div class="col-sm-12">
+                <center>
+                    <div style="padding:24%;background: #4fb9af;">
+                        <div style="color: #000000;background: none;padding: 17px;">
+                            <h2>Vortex induced vibrations (VIV) around circular cylinder</h2>
+                        </div>
+                        <div style="padding: 10px">
+                            <button type="button" id="start" class="btn btn-lg btn-default" style="color: #333;background-color: #fff;   border-color: #ccc;"><b>Start</b></button>
+                        </div>
+                    </div>
+                </center>
+            </div>
+        </div>
+        <div id="demo">
+            <app-root></app-root>
+        </div>
+    </div>
+    <script type="module">
+        $(document).ready(function(){ /*--------------------------------------------Project intial work----------------------------------*/ let progress_count=0; const event_progress = () =>{ $("#myBar").css('width',progress_count+"%"); $("#myBar").html(progress_count+"%");
+        progress_count++; if(progress_count==101) { clearInterval(eventInterval); $("#step1").hide(); $("#step2").show(); } }; const eventInterval = setInterval(event_progress, 30); $("#demo,#step2").hide(); let nvalue=0,knvalue=0,cube="",grade="",load=0,broke_analysis=0,broke_value=0;
+        cube=parseInt($("#cube").val()); grade=parseInt($("#grade").val()); $("#KNvalue").text("None"); /*--------------------------------------------Project intial work----------------------------------*/ $("#start").click(function(){ $("#step2").hide();
+        $("#demo").show(); }); });
+    </script>
+    <script src="runtime.75f77e43e898dfe1.js" type="module"></script>
+    <script src="polyfills.2309ac72ca1f6735.js" type="module"></script>
+    <script src="main.9d7ab4f652848617.js" type="module"></script>
+
+</body>
+
+</html>
